@@ -1,0 +1,66 @@
+//view call with function
+
+select write_message ('PP'),* from book_info_v where title like '%Si%'
+
+//create function
+create function write_message(
+in string varchar
+)
+returns varchar
+AS $$
+BEGIN
+    RETURN 'Hello ' || string || '! How are you? ';
+END;
+$$ LANGUAGE plpgsql;
+
+select * from write_message ('PP')
+
+
+
+
+
+
+//create view
+
+create view book_info_v as 
+SELECT bk.title, bk.author, bk.publisher, ct.category, ln.language, ft.format_type
+                 FROM book bk left join book_category ct on bk.category_id = ct.id  
+				 left join language ln on bk.language_id = ln.id 
+				 left join format ft on bk.format_id = ft.id
+				 
+				 
+				 
+				 
+====================================================================================================================================================				 
+//JOIN
+				 
+create or replace function book_info(
+in book_name varchar
+)
+returns table (title varchar, author varchar, publisher varchar, category varchar, lang varchar, format varchar)
+ AS $$
+BEGIN
+    RETURN QUERY 
+	SELECT bk.title, bk.author, bk.publisher, ct.category, ln.language, ft.format_type
+                 FROM book bk left join book_category ct on bk.category_id = ct.id  
+				 left join language ln on bk.language_id = ln.id 
+				 left join format ft on bk.format_id = ft.id
+                 WHERE lower(bk.title) like '%' || lower(book_name) || '%';
+END;
+$$ LANGUAGE plpgsql;
+
+
+select * from book_info('mony')
+
+
+select * from book where publisher like '%Nu%'
+
+
+
+
+
+select * from book_category
+
+
+				  				 
+				 

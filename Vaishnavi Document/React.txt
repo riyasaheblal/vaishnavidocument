@@ -1,0 +1,10 @@
+how to create project in react
+
+1. D:\react go in this 
+2. open cmd
+3. npx create-react-app reactapp    enter then it will create new folder in this (D:\react) 
+4. then go in viual studio -> file -> open folder -> select folder -> open
+5. src -> roghtclick -> new folder -> Components( C must be Capital)
+6. right click on Components -> New File -> Procedure.js enter
+7. npm start     -> to start your project write npm start on terminal
+

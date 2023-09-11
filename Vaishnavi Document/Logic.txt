@@ -1,0 +1,295 @@
+1.Spring Security
+
+C -User - Vaishnavi_Rathod - SLPractice_Programs - springboot3 - springsecurity6-jwt-master(this project is readymade imported )
+
+goole - jwt authentication and authorization with spring boot 3 and spring security 6 - (click on that link nd read that Architecture.)
+
+=============================================================================================================================
+
+2. Responce Entity - i-e -> OK
+
+class - AuthenticationController
+
+C -User - Vaishnavi_Rathod - SLPractice_Programs - springboot3 - springsecurity6-jwt-master-AuthenticationController
+
+oR
+
+C -User - Vaishnavi_Rathod - SLPractice_Programs - springboot3 - test
+
+
+
+=============================================================================================================================
+
+3. API
+
+C -User - Vaishnavi_Rathod - SLPractice_Programs - springboot3 - demo
+
+=============================================================================================================================
+
+4. How to add Swagger in project ?
+
+1.1 - Add dependency for swagger in pom.xml
+
+google - (spring boot swagger 3) -> put it as it is covered in bracket  - click on first link - reffer below dependency among them.
+
+<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.1.0</version>
+		</dependency>
+1.2 - then scroll down in same page and search below link in that then click on below link
+
+ http://localhost:8080/swagger-ui/index.html		
+
+
+1.2 - search for get,put,post and delete methods. 
+
+1.2 - done
+
+=============================================================================================================================
+
+5. 4. How to add Validations in project ?
+
+C -User - Vaishnavi_Rathod - SLPractice_Programs - springboot3 - springsecurity6-jwt-master
+
+step 1 - Add below dependency in pom.xml
+
+<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+            <version>3.0.4</version>
+        </dependency>
+		
+		
+step 2 - class- AuthenticationController
+
+add @Valid annotation in controller
+
+step 3 - class - SignUpRequest	
+
+add notnull annotation like below 
+
+ @NotBlank(message = "firstname should not be null")
+ 
+Done
+
+=============================================================================================================================
+how to download any file from github?
+
+1. click on file
+2. click on code button placed ata right side
+3. download zip
+4. extract that file
+Done
+
+==============================================================================================================================
+How to add security in project?(Role Base Access)
+
+C -User - Vaishnavi_Rathod - SLPractice_Programs - springboot3 - spring-security-main
+
+
+===============================================================================================================================
+How to add Log4j in your project?
+
+C -User - Vaishnavi_Rathod - SLPractice_Programs - BackendService
+
+
+step 1 - Add @Log4j2 in controller
+step 2 - add log.error  , log.info   , log.warn  inside method in controller
+step 3 - execute project and and hit through postman
+
+================================================================================================================================
+By using store procedurehow we can retrive data from postman?
+
+C:\Users\vaishnavi.rathod\SLPracticePrograms\student-main
+
+1. for configuration create one class name as DatasourceConfig
+2. without creating seperate odel for multile fields we need to create commonDao and  commonDaoImpl
+3. For Connectivity perpose give your database name in application.yml file
+4. run the project and hit through postman like given below:
+
+POST
+
+ http://localhost:8082/student/getBooks
+ 
+ {
+    "procedureName" : "book_info",
+    "keyValuePairs" : [
+        {
+            "key" : "book_name",
+            "value": "mony"
+        }
+    ]
+}
+
+op --> [["Harmony's Heir","W.K.Kohli","Nutan","Romance","Sanskrit","Hardcover"]]
+
+======================================================================================================
+
+C:\Users\vaishnavi.rathod\SLPracticePrograms\student-main
+
+
+(Below output for fetching data from 3 different tables stored in a single store-procedure) -->>
+
+POST
+
+ http://localhost:8082/student/getStudents
+ 
+ {
+    "procedureName": "sp_result_sets",
+    "outKeyValuePairs": null,
+    "OutputParam": null,
+    "providerType": "mysql",
+    "ConnectionString": "Server=localhost;Uid=root;Pwd=admin;Port=3306;Database=storedproducer;maximumpoolsize=900"
+}
+
+
+OUTPUT -->>
+
+[
+    [
+        {
+            "name": "Vashnavi",
+            "id": 1,
+            "age": 26
+        },
+        {
+            "name": "Riya",
+            "id": 2,
+            "age": 24
+        }
+    ],
+    [
+        {
+            "category_id": 1,
+            "author": "A.R.Kohli",
+            "publisher": "Joshi",
+            "format_id": 2,
+            "id": 1,
+            "language_id": 2,
+            "title": "Lucky"
+        },
+        {
+            "category_id": 2,
+            "author": "Pathan",
+            "publisher": "Tripathi",
+            "format_id": 6,
+            "id": 2,
+            "language_id": 4,
+            "title": "Gargi"
+        },
+        {
+            "category_id": 1,
+            "author": "Trupti",
+            "publisher": "K.k.Rathore",
+            "format_id": 8,
+            "id": 3,
+            "language_id": 6,
+            "title": "Heaven"
+        },
+        {
+            "category_id": 1,
+            "author": "Soya",
+            "publisher": "Ziya",
+            "format_id": 6,
+            "id": 4,
+            "language_id": 4,
+            "title": "History"
+        },
+        {
+            "category_id": 1,
+            "author": "Shital",
+            "publisher": "Lala",
+            "format_id": 7,
+            "id": 5,
+            "language_id": 4,
+            "title": "Future"
+        }
+    ],
+    [
+        {
+            "dept_name": "CSE",
+            "id": 1,
+            "no_of_students": 100
+        },
+        {
+            "dept_name": "IT",
+            "id": 2,
+            "no_of_students": 90
+        },
+        {
+            "dept_name": "MECH",
+            "id": 3,
+            "no_of_students": 40
+        },
+        {
+            "dept_name": "CIVIL",
+            "id": 4,
+            "no_of_students": 50
+        },
+        {
+            "dept_name": "ELECT",
+            "id": 5,
+            "no_of_students": 70
+        }
+    ]
+]
+
+
+
+for this upper op what exactely changes need to do in programmin is as follows :>>>
+
+CommonDaoImpl.java  ->>
+
+ @Override
+    public String getProcData(Request request) throws JsonProcessingException, SQLException {
+
+        Connection conn = dbService.getDbConnection(request);
+
+        CallableStatement callableStatement = conn.prepareCall(createSqlStatement(request));
+
+//        List<KeyValuePair> paramKeyValues = request.keyValuePairs();
+//        if (paramKeyValues!=null && paramKeyValues.size()>0){
+//            int i = 1;
+//            for (KeyValuePair keyValuePair: paramKeyValues) {
+//            if(keyValuePair.dataType().getString().equals(Datatype.INT.getString())) {
+//                callableStatement.setInt(i,Integer.parseInt(keyValuePair.value()));
+//                System.out.println(callableStatement);
+//            } else if(keyValuePair.dataType().getString().equals(Datatype.STR.getString())) {
+//                callableStatement.setString(i,keyValuePair.value());
+//            } else if(keyValuePair.dataType().getString().equals(Datatype.DOU.getString())) {
+//                callableStatement.setDouble(i,Double.parseDouble(keyValuePair.value()));
+//            } else if(keyValuePair.dataType().getString().equals(Datatype.BOOL.getString())) {
+//                callableStatement.setBoolean(i,Boolean.parseBoolean(keyValuePair.value()));
+//            } else {
+//                callableStatement.setObject(i,keyValuePair.value());
+//            }
+//
+//                i++;
+//            }
+//        }
+        /*ResultSet rs = callableStatement.executeQuery();
+        List<Map<String, Object>> listMap =  extractData(rs);
+*/
+
+        boolean demo = callableStatement.execute();
+
+        List<List<Map<String, Object>>> resultSets = new ArrayList<>();
+
+        // Process all result sets returned by the stored procedure
+        while (demo) {
+            ResultSet rs = callableStatement.getResultSet();
+            List<Map<String, Object>> listMap = extractData(rs);
+            resultSets.add(listMap);
+
+            // Check if there are more result sets
+            demo = callableStatement.getMoreResults();
+        }
+        callableStatement.close();
+        conn.close();
+
+
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        return objectMapper.writeValueAsString(resultSets);
+    }

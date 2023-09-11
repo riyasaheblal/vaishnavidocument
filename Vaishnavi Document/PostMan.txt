@@ -1,0 +1,607 @@
+Below connectivity eith postgres-Database -->>>
+
+Application.properties for postgres ->>
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: admin
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+server:
+  port: 8082
+  
+===========================================================================================
+
+
+POST
+
+ http://localhost:8082/student/getBooks
+ 
+ {
+    "procedureName" : "book_info",
+    "keyValuePairs" : [
+        {
+            "key" : "book_name",
+            "value": "mony"
+        }
+    ]
+}
+
+op --> [["Harmony's Heir","W.K.Kohli","Nutan","Romance","Sanskrit","Hardcover"]]
+
+
+===========================================================================================
+POST
+
+ http://localhost:8082/student/getStudents
+ 
+ {
+    "procedureName" : "book_info",
+    "keyValuePairs" : [
+        {
+            "key" : "book_name",
+            "value": "mony"
+        }
+    ]
+}
+
+op --> [["Harmony's Heir","W.K.Kohli","Nutan","Romance","Sanskrit","Hardcover"]]
+
+
+==============================================================================================
+POST
+
+ http://localhost:8082/student/getStudents
+ 
+ {
+    "procedureName" : "user_info",
+    "keyValuePairs" : [
+        {
+            "key" : "name",
+            "value": "s"
+        }
+    ]
+}
+
+op --> [["Sita","sita@gmail.com"]]
+
+==============================================================================================
+ 
+post
+
+ http://localhost:8082/student/getStudents
+ 
+ {
+    "procedureName" : "only_integer",
+    "keyValuePairs" : [
+        {
+            "key" : "book_name",
+            "value": 5,
+            "dataType":"integer"
+            
+        }
+    ]
+}
+
+op --> [[5,"Silent Echoes","A.K.Mehta","Rejesh Kumar"]]
+
+==============================================================================================
+post 
+ 
+  http://localhost:8082/student/getStudents
+  
+  {
+    "procedureName" : "book_info",
+    "keyValuePairs" : [
+        {
+            "key" : "book_name",
+            "value": "mony",
+            "dataType":"string"
+            
+        }
+    ]
+}
+
+op --> [["Harmony's Heir","W.K.Kohli","Nutan","Romance","Sanskrit","Hardcover"]]
+
+
+==============================================================================================
+
+ http://localhost:8082/student/getStudents
+
+{
+    "procedureName": "book_info",
+    "keyValuePairs": [
+        {
+            "key": "book_name",
+            "value": "s",
+            "dataType": "STR"
+        }
+    ],
+    "outKeyValuePairs": null,
+    "OutputParam": null,
+    "providerType": "postgresql",
+    "ConnectionString": "Server=localhost;Uid=postgres;Pwd=admin;Port=5432;Database=postgres;maximumpoolsize=900"
+}
+
+
+op --> [
+    {
+        "author": "A.K.Mehta",
+        "format": "Paper-book",
+        "publisher": "Rejesh Kumar",
+        "title": "Silent Echoes part 2",
+        "category": "Finance",
+        "lang": "Hindi"
+    },
+    {
+        "author": "A.R.Tohni",
+        "format": "Paper-book",
+        "publisher": "Santana Kumar",
+        "title": "A Symphony of Stars 2",
+        "category": "Religious",
+        "lang": "Math"
+    },
+    {
+        "author": "Ajesh victi",
+        "format": "e-book",
+        "publisher": "James Gosling",
+        "title": "Echoes of Destiny part 3",
+        "category": null,
+        "lang": "Marathi"
+    },
+    {
+        "author": "Anjana Kureha",
+        "format": "e-book",
+        "publisher": "A.W.Tripathi",
+        "title": "Shadows of Tomorrow 1",
+        "category": "Non-Fiction",
+        "lang": "Sanskrit"
+    },
+    {
+        "author": "W.K.Kohli",
+        "format": "Hardcover",
+        "publisher": "Nutan",
+        "title": "Harmony's Heir 1",
+        "category": "Romance",
+        "lang": "Sanskrit"
+    }
+]
+
+==============================================================================================
+
+POST
+
+ http://localhost:8082/dbservice/getData
+ 
+ {
+    "procedureName": "sp_result_sets",
+    "outKeyValuePairs": null,
+    "OutputParam": null,
+    "providerType": "mysql",
+    "ConnectionString": "Server=localhost;Uid=root;Pwd=admin;Port=3306;Database=storedproducer;maximumpoolsize=900"
+}
+
+op- 
+[{"name":"Vaishnavi","id":1,"age":26},{"name":"Riya","id":2,"age":24}] 	
+
+
+
+==============================================================================================
+
+Below connectivity with mysql-Database -->>>
+
+Application.properties for mysql ->>
+
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/storedproducer
+    username: root
+    password: admin
+
+  jpa:
+    show-sql: true
+    hibernate:
+    ddl-auto: update
+
+server:
+  port: 8082
+
+
+===============================================================================================
+(Below output for fetching data from 3 different tables stored in a single store-procedure) -->>
+
+POST
+
+ http://localhost:8082/student/getStudents
+ 
+ {
+    "procedureName": "sp_result_sets",
+    "outKeyValuePairs": null,
+    "OutputParam": null,
+    "providerType": "mysql",
+    "ConnectionString": "Server=localhost;Uid=root;Pwd=admin;Port=3306;Database=storedproducer;maximumpoolsize=900"
+}
+
+
+OUTPUT -->>
+
+[
+    [
+        {
+            "name": "Vashnavi",
+            "id": 1,
+            "age": 26
+        },
+        {
+            "name": "Riya",
+            "id": 2,
+            "age": 24
+        }
+    ],
+    [
+        {
+            "category_id": 1,
+            "author": "A.R.Kohli",
+            "publisher": "Joshi",
+            "format_id": 2,
+            "id": 1,
+            "language_id": 2,
+            "title": "Lucky"
+        },
+        {
+            "category_id": 2,
+            "author": "Pathan",
+            "publisher": "Tripathi",
+            "format_id": 6,
+            "id": 2,
+            "language_id": 4,
+            "title": "Gargi"
+        },
+        {
+            "category_id": 1,
+            "author": "Trupti",
+            "publisher": "K.k.Rathore",
+            "format_id": 8,
+            "id": 3,
+            "language_id": 6,
+            "title": "Heaven"
+        },
+        {
+            "category_id": 1,
+            "author": "Soya",
+            "publisher": "Ziya",
+            "format_id": 6,
+            "id": 4,
+            "language_id": 4,
+            "title": "History"
+        },
+        {
+            "category_id": 1,
+            "author": "Shital",
+            "publisher": "Lala",
+            "format_id": 7,
+            "id": 5,
+            "language_id": 4,
+            "title": "Future"
+        }
+    ],
+    [
+        {
+            "dept_name": "CSE",
+            "id": 1,
+            "no_of_students": 100
+        },
+        {
+            "dept_name": "IT",
+            "id": 2,
+            "no_of_students": 90
+        },
+        {
+            "dept_name": "MECH",
+            "id": 3,
+            "no_of_students": 40
+        },
+        {
+            "dept_name": "CIVIL",
+            "id": 4,
+            "no_of_students": 50
+        },
+        {
+            "dept_name": "ELECT",
+            "id": 5,
+            "no_of_students": 70
+        }
+    ]
+]
+
+
+
+for this upper op what exactely changes need to do in programmin is as follows :>>>
+
+CommonDaoImpl.java  ->>
+
+ @Override
+    public String getProcData(Request request) throws JsonProcessingException, SQLException {
+
+        Connection conn = dbService.getDbConnection(request);
+
+        CallableStatement callableStatement = conn.prepareCall(createSqlStatement(request));
+
+//        List<KeyValuePair> paramKeyValues = request.keyValuePairs();
+//        if (paramKeyValues!=null && paramKeyValues.size()>0){
+//            int i = 1;
+//            for (KeyValuePair keyValuePair: paramKeyValues) {
+//            if(keyValuePair.dataType().getString().equals(Datatype.INT.getString())) {
+//                callableStatement.setInt(i,Integer.parseInt(keyValuePair.value()));
+//                System.out.println(callableStatement);
+//            } else if(keyValuePair.dataType().getString().equals(Datatype.STR.getString())) {
+//                callableStatement.setString(i,keyValuePair.value());
+//            } else if(keyValuePair.dataType().getString().equals(Datatype.DOU.getString())) {
+//                callableStatement.setDouble(i,Double.parseDouble(keyValuePair.value()));
+//            } else if(keyValuePair.dataType().getString().equals(Datatype.BOOL.getString())) {
+//                callableStatement.setBoolean(i,Boolean.parseBoolean(keyValuePair.value()));
+//            } else {
+//                callableStatement.setObject(i,keyValuePair.value());
+//            }
+//
+//                i++;
+//            }
+//        }
+        /*ResultSet rs = callableStatement.executeQuery();
+        List<Map<String, Object>> listMap =  extractData(rs);
+*/
+
+        boolean demo = callableStatement.execute();
+
+        List<List<Map<String, Object>>> resultSets = new ArrayList<>();
+
+        // Process all result sets returned by the stored procedure
+        while (demo) {
+            ResultSet rs = callableStatement.getResultSet();
+            List<Map<String, Object>> listMap = extractData(rs);
+            resultSets.add(listMap);
+
+            // Check if there are more result sets
+            demo = callableStatement.getMoreResults();
+        }
+        callableStatement.close();
+        conn.close();
+
+
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        return objectMapper.writeValueAsString(resultSets);
+    }
+
+
+===============================================================================================
+POST
+ http://localhost:8082/dbservice/getData
+
+
+
+
+{
+    "procedureName": "book_info",
+    "keyValuePairs": [
+        {
+            "key": "book_name",
+            "value": "s",
+            "dataType": "STR"
+        }
+    ],
+    "outKeyValuePairs": null,
+    "OutputParam": null,
+    "providerType": "postgresql",
+    "ConnectionString": "Server=localhost;Uid=postgres;Pwd=admin;Port=5432;Database=postgres;maximumpoolsize=900"
+}
+
+op-
+
+[
+    {
+        "author": "A.K.Mehta",
+        "format": "Paper-book",
+        "publisher": "Rejesh Kumar",
+        "title": "Silent Echoes part 2",
+        "category": "Finance",
+        "lang": "Hindi"
+    },
+    {
+        "author": "A.R.Tohni",
+        "format": "Paper-book",
+        "publisher": "Santana Kumar",
+        "title": "A Symphony of Stars 2",
+        "category": "Religious",
+        "lang": "Math"
+    },
+    {
+        "author": "Ajesh victi",
+        "format": "e-book",
+        "publisher": "James Gosling",
+        "title": "Echoes of Destiny part 3",
+        "category": null,
+        "lang": "Marathi"
+    },
+    {
+        "author": "Anjana Kureha",
+        "format": "e-book",
+        "publisher": "A.W.Tripathi",
+        "title": "Shadows of Tomorrow 1",
+        "category": "Non-Fiction",
+        "lang": "Sanskrit"
+    },
+    {
+        "author": "W.K.Kohli",
+        "format": "Hardcover",
+        "publisher": "Nutan",
+        "title": "Harmony's Heir 1",
+        "category": "Romance",
+        "lang": "Sanskrit"
+    }
+]
+
+==================================================================================================================================
+ENDPOINTS :
+
+
+POST
+
+  http://localhost:8082/dbservice/WriteData
+ 
+ {
+    "procedureName": "InsertCustomerData",
+    "keyValuePairs": [
+        {
+            "key": "p_first_name",
+            "value": "sona",
+            "dataType": "STR"
+        },
+        {
+            "key": "p_last_name",
+            "value": "xyz",
+            "dataType": "STR"
+        },
+        {
+            "key": "p_email_address",
+            "value": "abc@gmail.com",
+            "dataType": "STR"
+        },
+        {
+            "key": "p_profile_picture",
+            "value": null,
+            "dataType": "BLOB"
+        },
+        {
+            "key": "p_age",
+            "value": 17,
+            "dataType": "INT"
+        },
+        {
+            "key": "p_is_active",
+            "value": null,
+            "dataType": "BOOL"
+        },
+        {
+            "key": "p_account_balance",
+            "value": 12345.57,
+            "dataType": "FLO"
+        },
+        {
+            "key": "p_credit_score",
+            "value": 0.0,
+            "dataType": "DOU"
+        },
+        {
+            "key": "p_transaction_amount",
+            "value": 234.56,
+            "dataType": "FLO"
+        },
+        {
+            "key": "p_registration_date",
+            "value": "2023-09-12",
+            "dataType": "DATE"
+        },
+        {
+            "key": "p_last_login",
+            "value":"2023-06-05 02:45:00",
+            "dataType": "TIME"
+        }
+    ],
+    "outKeyValuePairs": null,
+    "OutputParam": null,
+    "providerType": "mysql",
+    "ConnectionString": ""
+}
+
+
+op :-> it will insert data into table
+
+=====================================================================================================================================================
+
+POST 
+
+ http://localhost:8082/dbservice/WriteData
+ 
+ 
+ {
+    "procedureName": "UpdateCustomerData",
+    "keyValuePairs": [
+        {
+            "key": "p_customer_id",
+            "value": 20,
+            "dataType": "INT"
+        },
+        {
+            "key": "p_first_name",
+            "value": "testing", 
+            "dataType": "STR"
+        },
+        {
+            "key": "p_last_name",
+            "value": "pqr",
+            "dataType": "STR"
+        },
+        {
+            "key": "p_email_address",
+            "value": "abc@gmail.com",
+            "dataType": "STR"
+        },
+        {
+            "key": "p_profile_picture",
+            "value": null,
+            "dataType": "BLOB"
+        },
+        {
+            "key": "p_age",
+            "value": 17,
+            "dataType": "INT"
+        },
+        {
+            "key": "p_is_active",
+            "value": null,
+            "dataType": "BOOL"
+        },
+        {
+            "key": "p_account_balance",
+            "value": 12345.57,
+            "dataType": "FLO"
+        },
+        {
+            "key": "p_credit_score",
+            "value": 0.0,
+            "dataType": "DOU"
+        },
+        {
+            "key": "p_transaction_amount",
+            "value": 234.56,
+            "dataType": "FLO"
+        },
+        {
+            "key": "p_registration_date",
+            "value": null,
+            "dataType": "DATE"
+        },
+        {
+            "key": "p_last_login",
+            "value": null,
+            "dataType": "TIME"
+        }
+    ],
+    "outKeyValuePairs": null,
+    "OutputParam": null,
+    "providerType": "mysql",
+    "ConnectionString": ""
+}
+
+OP -> It will update data into table.
+
+=============================================================================================================================================================

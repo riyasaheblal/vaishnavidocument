@@ -1,0 +1,10 @@
+How to find IP Address of your system?
+1. open cmd
+2. ipconfig (type tis command no space in between)
+3. this is ip address of your system -> IPv4 Address. . . . . . . . . . . : 192.168.100.76
+
+
+
+
+To check java version
+java -version

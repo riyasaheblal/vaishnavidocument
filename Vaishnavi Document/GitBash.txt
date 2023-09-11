@@ -1,0 +1,67 @@
+sep 1 - Create 1 folder
+step 2 - create no. of folders you want in the same
+step 3 - git init --> for check location of our folder
+step 4 - ls --> for getting all folders name present in the specific folder
+step 5 - git status --> To check git status
+step 6 - git add space . --> To add or track all present files
+step 7 - git rm --cached Sample.txt(file name) --. To remove file added by mitake
+step 8 - clear --> Tio clear gitBash
+step 9 - git rm temp.txt --> To delete specific file
+step 10 - git rm --cached test.txt(file name) --> To remove file
+step 11 - git commit --m"This is my first commit"
+step 12 - git push
+
+
+
+How To Clone any project?(CLONE)
+
+step 1 - click on that link which you want to clone
+step 2 - login with github - click on code - copy that link
+step 3 - open folder where you want to clone it
+step 4 - right click in that - open git bash here
+step 5 - git clone https://github.com/riyasaheblal/student-main.git  (paste that copied link here) - done.
+
+
+How to send your project to other(PUSH)
+
+step 1 - go into that folder 
+step 2 - open git bash here
+step 3 - login to your git account - create new repository - give same name to repo as that folder which you want to send - create
+step 4 - go back in gitbash - git init - git status - git add . - $ git commit -m "first commit"  -   git branch -M main - $ git remote add origin https://github.com/vaishnavirathod1612/student-main.git  -  $ git push -u origin main
+step 5 - refresh git account - click on code - send that link them - done.
+
+
+How to PUSH code through console(New terminal)
+
+1. run your project
+2. you can seee 5 symbole on left side (Click on terminal -> it will create new terminal)
+3. git fetch -> git status -> git add . ->  git commit -m "this is 1st commit" -> git push  -> done
+
+
+
+How to get access someones git account.
+1.open github
+2.click on any repository
+3.setting -> collaborators -> provide password -> add people -> enter  their github id -> send request to them.
+   
+   
+How To Merge a code?
+1. new terminal - git fetch -> git status -> git add . -> git checkout
+
+
+
+
+How to take updated code from github?
+1. new terminal - git fetch -> git status -> git add . ->  git commit -m "this is 1st commit" -> git pull  -> done(You will get all newly added code in your own code)
+
+
+How to create new branch on github?
+GitHubAccount -> open one repo in wich you want ot create branch --> in left screen you get main branch tags -> click on branch -> new branch -> give name -> create -> copy branch name -> done
+
+
+
+How to checkout your code?
+GitHubAccount -> open 1 repo -> code -> new(right side) -> create new branch -> intellij id terminal -> git fetch -> (at upper sideclick on) main -> Remote -> Right click on your branch -> checkout
+
+
+

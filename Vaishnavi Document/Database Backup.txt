@@ -1,0 +1,19 @@
+How to take Database Backup?
+1. right click on database
+2.backup -> click on file where u want to store it -> give same name as that of the dabase name -> format(Custom)
+3. at upper side click on Data/Object -> pre-data,data,post-data - all that make enable 
+4. at upper side click on Options -> Use Column Insert  -> make it enable
+5. click on backup 
+6.you will get that file into your destination done
+
+
+
+
+
+To Send to backup to someone
+1.click on mail chat -> upload file -> go into destination send it
+
+
+
+How to save others file into your database
+1.lick on that file -> it will get download -> create new database into postgres(any name) -> right click on that -> restore -> click on that which you want to restore -> done
